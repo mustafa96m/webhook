@@ -39,7 +39,6 @@ class WebhookChannel
         $webhookData = $notification->toWebhook($notifiable)->toArray();
 
         $response = $this->client->post($url, [
-            'query' => Arr::get($webhookData, 'query'),
             'form_params' => Arr::get($webhookData, 'data'),
             'verify' => Arr::get($webhookData, 'verify'),
             'headers' => Arr::get($webhookData, 'headers'),
